@@ -17,6 +17,7 @@ The screenshot shows the result of running the `lscpu` command, which provides d
 
 
 `lscpu` also lists CPU vulnerabilities along with mitigation details as shown under, which show the security measures the system applies to reduce the risk of exploiting known hardware vulnerabilities.
+
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 
 
