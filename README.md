@@ -8,7 +8,7 @@ This part of the project demonstrates how to analyze system resources, test perf
 #### a) CPU / Cores and Bogomips
 The first step towards perfomance benchmarking and load testing is collecting information about system's processor. This includes number of cores and the Bogomips value per core, providing a baseline understanding of the system's capacity and hardware characteristics.
 
-!<-- **Number of CPUs/Core:** 2   **BogoMips per core:** 5587.06  
+<!-- **Number of CPUs/Core:** 2   **BogoMips per core:** 5587.06  
 <img src="images/CPU-Information(lscpu).png" alt="CPU Information" width="450"/>
 
 
