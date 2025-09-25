@@ -13,6 +13,8 @@ The first step towards perfomance benchmarking and load testing is collecting in
 lscpu
 cat/proc/cpuinfo | grep bogomips
 
+````
+
 
 
 
