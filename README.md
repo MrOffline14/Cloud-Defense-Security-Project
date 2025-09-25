@@ -14,11 +14,12 @@ The first step towards perfomance benchmarking and load testing is collecting in
 
 <img src="images/CPU-vuln.png" alt="CPU Bogomips" width="450"/> -->
 
+---
+*This screenshot shows the `lscpu` output, including architecture, CPU model, number of cores, and the Bogomips value.* 
 
 <img src="images/CPU-Information(lscpu).png" alt="CPU Info (lscpu)" width="500"/> 
 
 
-*This screenshot shows the `lscpu` output, including architecture, CPU model, number of cores, and the Bogomips value.* 
 
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 *This screenshot lists CPU vulnerabilities and mitigation details provided by the system.* 
