@@ -5,6 +5,10 @@ This part of the project demonstrates how to analyze system resources, test perf
 
 ### 1. System Information Analysis
 #### a) CPU / Cores and Bogomips
+**Commands Used:**
+```bash
+lscpu
+cat/proc/cpuinfo | grep bogomips
 
 
 
