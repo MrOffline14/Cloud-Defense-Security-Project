@@ -20,17 +20,20 @@ The screenshot shows the result of running the `lscpu` command, which provides d
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 
 
+
+*Additionally, `cat /proc/cpuinfo | grep bogomips` can be used to confirm the Bogomips value directly from the CPU info file, showing identical results for each core.*
+
 <img src="images/CPU-Bogomips-verify.png" alt="Bogomips from /proc/cpuinfo" width="500"/> 
 
 
-*This screenshot confirms the Bogomips value using `cat /proc/cpuinfo | grep bogomips`, showing identical results for each core.* ```
+
 
 **Commands Used:**
 ```bash
 lscpu
 cat/proc/cpuinfo | grep bogomips
 
-````
+```
 
 
 
