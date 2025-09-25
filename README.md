@@ -15,7 +15,7 @@ The first step towards perfomance benchmarking and load testing is collecting in
 <img src="images/CPU-vuln.png" alt="CPU Bogomips" width="450"/> -->
 
 
-<sub>*This screenshot shows the `lscpu` output, including architecture, CPU model, number of cores, and the Bogomips value.* </sub>
+The screenshot shows the result of running the `lscpu` command, which provides details such as CPU architecture, model, number of cores, and the Bogomips value.
 
  **Number of CPUs/Core:** 2   **BogoMips per core:** 5587.06  
 <img src="images/CPU-Information(lscpu).png" alt="CPU Info (lscpu)" width="500"/> 
