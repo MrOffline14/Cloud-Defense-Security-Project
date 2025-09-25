@@ -4,6 +4,7 @@
 This part of the project demonstrates how to analyze system resources, test performance under load, compare a web server on the host versus in a container, and perform stress tests with high concurrency.
 
 ### 1. System Information Analysis
+--- 
 #### a) CPU / Cores and Bogomips
 **Commands Used:**
 ```bash
