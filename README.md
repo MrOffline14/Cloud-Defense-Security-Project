@@ -37,6 +37,13 @@ cat/proc/cpuinfo | grep bogomips
 ```
 
 
+### b) Open Network Ports
+
+Checking open ports helps verify which services are actively listening on the system. 
+In this project, the purpose is to confirm that only the necessary services (e.g., NGINX for load testing) are running, 
+so that performance benchmarks take place in a controlled environment without interference from unrelated processes. 
+Unnecessary services can be disabled to avoid extra resource usage or unintended exposure.
+
 
 
 ### 2. Webserver Setup and Local Load Testing
