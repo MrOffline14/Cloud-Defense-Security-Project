@@ -133,6 +133,17 @@ htop
 
 ### 3. Containerized Load Testing with Docker
 
+**Installing Docker**
+Docker was introduced at this stage to extend the benchmarking from a bare-metal setup into a containerized environment. It was installed on the system using `sudo apt install docker.io`, and the Nginx web server was later started inside a container with `sudo docker run -d -p 80:80 nginx`. This made it possible to compare raw host performance with containerized performance, reflecting modern deployment practices where containers are widely used.  
+
+A containerized setup ensures consistency by packaging the application with its dependencies, while also providing process isolation and options for fine-grained resource control. This allows for reproducible experiments and highlights the trade-off between efficiency and flexibility.  
+
+In practice, repeating the experiment in Docker not only offers comparative data, but also mirrors industry-standard approaches where containerization and orchestration platforms such as Kubernetes are central to scalable deployments.
+
+
+
+
+
 
 
 
