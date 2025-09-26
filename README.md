@@ -31,7 +31,10 @@ The screenshot shows the result of running the `lscpu` command, which provides d
 
 **Commands Used:**
 ```bash
+# Display detailed CPU architecture, including cores, threads, bogomips, and vulnerabilities
 lscpu
+
+# Verify bogomips value directly from /proc/cpuinfo for each core
 cat/proc/cpuinfo | grep bogomips
 
 ```
@@ -56,6 +59,7 @@ about active TCP and UDP sockets.
 
 **Commands Used:**
 ```bash
+# List all listening TCP and UDP ports with socket details
 ss -tuln
 ```
 
@@ -82,9 +86,12 @@ The Service status was verified using `systemctl status nginx` to confirm that t
 
 
 
-**Command Used:**  
+**Commands Used:**  
 ```bash
+# Install the Nginx web server package
 sudo apt install nginx
+
+# Check that the Nginx service is loaded, enabled, and running
 systemctl status nginx
 ```
 
@@ -95,7 +102,8 @@ systemctl status nginx
 The command `ab -n 100000 -c 100 http://127.0.0.1/` was used to simulate 100,000 requests with a concurrency level of 100.  
 This kind of stress test is designed to evaluate how the web server handles a sudden burst of requests, which resembles a Denial-of-Service (DoS) scenario.  
 
-The picture under shows the execution progress of ApacheBench, including milestones of completed requests and the final summary confirming that all 100,000 requests were processed successfully without errors.  
+The picture under shows the execution progress of ApacheBench, including milestones of completed requests and the final summary confirming that all 100,000 requests were processed successfully without errors.
+
 This demonstrates that the server was capable of maintaining stability under significant load.
 
 <img src="images/DDoS-ApacheBenchmark.png" alt="ApacheBench DDoS simulation" width="500"/>
@@ -103,15 +111,33 @@ This demonstrates that the server was capable of maintaining stability under sig
 ---
 **CPU Load Monitoring**
 
-While the ApacheBench test was running, system resource usage was monitored with the `htop` command.  
-The screenshot shows that the CPU load peaked at around **26%**, illustrating how the system handled the stress test during the simulated DDoS attack.
+While the ApacheBench test was running, system resource usage was monitored using the `htop` command. The picture shows CPU utilization during the peak of the test, where the highest observed load reached **26%**.
+
+This indicates that the system had sufficient spare capacity and was not fully saturated, which suggests that the hardware could handle an even higher load or additional concurrent processes. Monitoring resource usage alongside benchmark testing is critical to identifying potential bottlenecks such as CPU saturation, memory exhaustion, or I/O limitations.  
+
+In this case, the relatively low CPU load under stress confirms that the bottleneck, if any, would more likely be in network throughput or application-level constraints rather than raw processing power.
+
 
 <img src="images/DDoS-CPUload.png" alt="CPU load during DDoS simulation" width="500"/>
 
 
+**Commands Used:**  
+```bash
+# Run ApacheBench with 100,000 requests and concurrency level 100
+ab -n 100000 -c 100 http://127.0.0.1/
 
+# Monitor system resources during the load test
+htop
+```
 
 
 ### 3. Containerized Load Testing with Docker
+
+
+
+
+
+
+
 
 ### 4. High-Concurrency Stress Test
