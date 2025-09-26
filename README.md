@@ -50,6 +50,8 @@ This is the modern replacement for `netstat -tuln` and provides the same informa
 about active TCP and UDP sockets.
 
 
+
+
 **Open Ports:** 53 (UDP/TCP), 631 (UDP/TCP), 5353 (UDP), 44170 (UDP), 47868 (UDP)
 
 <img src="images/NetworkPorts-services.png" alt="Open network ports" width="500"/>
