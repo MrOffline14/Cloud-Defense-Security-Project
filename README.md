@@ -133,18 +133,47 @@ htop
 
 ### 3. Containerized Load Testing with Docker
 
-**Installing Docker**
+**Load Testing with Docker**
+#### a) Installing Docker
 Docker was introduced at this stage to extend the benchmarking from a bare-metal setup into a containerized environment. It was installed on the system using `sudo apt install docker.io`, and the Nginx web server was later started inside a container with `sudo docker run -d -p 80:80 nginx`. This made it possible to compare raw host performance with containerized performance, reflecting modern deployment practices where containers are widely used.  
 
 A containerized setup ensures consistency by packaging the application with its dependencies, while also providing process isolation and options for fine-grained resource control. This allows for reproducible experiments and highlights the trade-off between efficiency and flexibility.  
 
 In practice, repeating the experiment in Docker not only offers comparative data, but also mirrors industry-standard approaches where containerization and orchestration platforms such as Kubernetes are central to scalable deployments.
 
+<img src="images/Docker-Install.png" alt="Docker Installation" width="500"/>
+
+
+#### b) Simulating DDoS Attack in Docker
+
+After installing Docker and running Nginx inside a container, the same Apache Benchmark (ab) stress test was repeated to observe performance differences compared to running Nginx directly on the host.
+
+The goal was to evaluate how containerization impacts CPU utilization and request handling under heavy load.
+
+**Apache Benchmark Execution (ab):**
+The following image shows the execution of the Apache Benchmark command:
+
+`ab -n 100000 -c 100 http://127.0.0.1/`
+
+This command simulates 100,000 HTTP requests with a concurrency level of 100, targeting the Nginx server running inside Docker. The output confirms the completion of all requests.
+
+<img src="images/Docker-AB-Benchmark.png" alt="Apache Benchmark in Docker" width="500"/>
+
+---
+
+**System Resource Monitoring (htop):**  
+
+The system resource usage was monitored in real-time using the `htop` command.
+
+The following screenshot shows the system resource usage during the load test, monitored in real time with the `htop` command.
+
+The CPU utilization peaked at approximately **9.8%** 
+
+<img src="images/Docker-CPU-Load.png" alt="CPU Load during Docker Benchmark" width="500"/>
 
 
 
-
-
+<!-- which is significantly lower than the **26%** observed when running Nginx directly on the host system. This demonstrates the performance differences introduced by containerization.-->
 
 
 
