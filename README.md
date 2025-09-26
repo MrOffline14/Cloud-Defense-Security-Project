@@ -64,11 +64,13 @@ about active TCP and UDP sockets.
 The next step is to set up a web server to be used for load testing.  
 For this project, **Nginx** was chosen due to its lightweight design and high performance.  
 
-Nginx was successfully installed and started on the VM. The installation process downloaded and configured the necessary packages, and the service status was checked to confirm that the server was running.
+Nginx was successfully installed and started on the VM by running `sudo apt install nginx`.  
+The installation process downloaded and configured the necessary packages, and the service status was verified using `systemctl status nginx` to confirm that the server was active and running. 
 
 **Command Used:**  
 ```bash
 sudo apt install nginx
+systemctl status nginx
 ```
 
 
