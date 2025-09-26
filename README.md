@@ -66,6 +66,11 @@ For this project, **Nginx** was chosen due to its lightweight design and high pe
 
 Nginx was successfully installed and started on the VM. The installation process downloaded and configured the necessary packages, and the service status was checked to confirm that the server was running.
 
+**Command Used:**  
+```bash
+sudo apt install nginx
+```
+
 
 <img src="images/Nginx-Installation.png" alt="Nginx installation process" width="500"/>
 
