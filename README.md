@@ -38,7 +38,7 @@ cat/proc/cpuinfo | grep bogomips
 ```
 
 
-### b) Open Network Ports
+#### b) Open Network Ports
 
 Checking open ports helps verify which services are actively listening on the system. 
 In this project, the purpose is to confirm that only the necessary services (e.g., NGINX for load testing) are running, 
@@ -55,17 +55,33 @@ about active TCP and UDP sockets.
 
 <img src="images/NetworkPorts-services.png" alt="Open network ports" width="500"/>
 
+**Commands Used:**
+```bash
+ss -tuln
+```
 
 
 ### 2. Webserver Setup and Local Load Testing
 ---
-### a) Nginx Installation
+#### a) Nginx Installation
 
 The next step is to set up a web server to be used for load testing.  
 For this project, **Nginx** was chosen due to its lightweight design and high performance.  
 
 Nginx was successfully installed and started on the VM by running `sudo apt install nginx`.  
-The installation process downloaded and configured the necessary packages, and the service status was verified using `systemctl status nginx` to confirm that the server was active and running. 
+The installation process downloaded and configured the necessary packages.
+
+
+<img src="images/Nginx-Installation.png" alt="Nginx installation process" width="500"/>
+
+
+The Service status was verified using `systemctl status nginx` to confirm that the server was active and running.
+
+<img src="images/Nginx-status.png" alt="Nginx service status" width="500"/>
+
+
+
+
 
 **Command Used:**  
 ```bash
@@ -73,8 +89,10 @@ sudo apt install nginx
 systemctl status nginx
 ```
 
+#### b) Simulating DDoS Attack
 
-<img src="images/Nginx-Installation.png" alt="Nginx installation process" width="500"/>
+
+
 
 
 
