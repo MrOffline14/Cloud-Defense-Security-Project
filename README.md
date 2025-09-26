@@ -49,7 +49,6 @@ Unnecessary services can be disabled to avoid extra resource usage or unintended
 To list the open network ports, the command `ss -tuln` was used.  
 This is the modern replacement for `netstat -tuln` and provides the same information 
 about active TCP and UDP sockets.
-
 <br></br>
 
 **Open Ports:** 53 (UDP/TCP), 631 (UDP/TCP), 5353 (UDP), 44170 (UDP), 47868 (UDP)
@@ -59,6 +58,18 @@ about active TCP and UDP sockets.
 
 
 ### 2. Webserver Setup and Local Load Testing
+---
+### a) Nginx Installation
+
+The next step is to set up a web server to be used for load testing.  
+For this project, **Nginx** was chosen due to its lightweight design and high performance.  
+
+Nginx was successfully installed and started on the VM. The installation process downloaded and configured the necessary packages, and the service status was checked to confirm that the server was running.
+
+
+<img src="images/Nginx-install.png" alt="Nginx installation process" width="500"/>
+
+
 
 ### 3. Containerized Load Testing with Docker
 
