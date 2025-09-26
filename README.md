@@ -49,6 +49,14 @@ To list the open network ports, the command `ss -tuln` was used.
 This is the modern replacement for `netstat -tuln` and provides the same information 
 about active TCP and UDP sockets.
 
+**Results:**  
+* Open Ports:  
+  - 53 (UDP and TCP)  
+  - 631 (UDP and TCP)  
+  - 5353 (UDP)  
+  - 44170 (UDP)  
+  - 47868 (UDP)  
+
 <img src="images/NetworkPorts-services.png" alt="Open network ports" width="500"/>
 
 
