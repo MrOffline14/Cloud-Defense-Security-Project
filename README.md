@@ -143,6 +143,14 @@ In practice, repeating the experiment in Docker not only offers comparative data
 
 <img src="images/Docker-Install.png" alt="Docker Installation" width="500"/>
 
+**Commands Used:**  
+```bash
+# Install Docker engine
+sudo apt install docker.io
+
+# Run an Nginx container on port 80
+sudo docker run -d -p 80:80 nginx
+```
 
 #### b) Simulating DDoS Attack in Docker
 
@@ -171,6 +179,16 @@ The CPU utilization peaked at approximately **9.8%**
 
 <img src="images/Docker-CPU-Load.png" alt="CPU Load during Docker Benchmark" width="500"/>
 
+
+
+**Commands Used:**  
+```bash
+# Simulate 100,000 HTTP requests with concurrency 100 inside Docker
+ab -n 100000 -c 100 http://127.0.0.1/
+
+# Monitor CPU load while the container is under stress
+htop
+```
 
 
 <!-- which is significantly lower than the **26%** observed when running Nginx directly on the host system. This demonstrates the performance differences introduced by containerization.-->
