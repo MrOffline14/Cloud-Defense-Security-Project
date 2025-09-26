@@ -4,7 +4,6 @@
 This part of the project demonstrates how to analyze system resources, test performance under load, compare a web server on the host versus in a container, and perform stress tests with high concurrency.
 
 ### 1. System Information Analysis
---- 
 #### a) CPU / Cores and Bogomips
 The first step towards perfomance benchmarking and load testing is collecting information about system's processor. This includes number of cores and the Bogomips value per core, providing a baseline understanding of the system's capacity and hardware characteristics.
 
@@ -14,14 +13,14 @@ The screenshot shows the result of running the `lscpu` command, which provides d
  **Number of CPUs/Core:** 2   **BogoMips per core:** 5587.06  
 <img src="images/CPU-Information(lscpu).png" alt="CPU Info (lscpu)" width="500"/> 
 
-
+---
 
 
 `lscpu` also lists CPU vulnerabilities along with mitigation details as shown under, which show the security measures the system applies to reduce the risk of exploiting known hardware vulnerabilities.
 
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 
-
+---
 
 *Additionally, `cat /proc/cpuinfo | grep bogomips` can be used to confirm the Bogomips value directly from the CPU info file, showing identical results for each core.*
 
@@ -62,7 +61,6 @@ ss -tuln
 
 
 ### 2. Webserver Setup and Local Load Testing
----
 #### a) Nginx Installation
 
 The next step is to set up a web server to be used for load testing.  
@@ -74,6 +72,7 @@ The installation process downloaded and configured the necessary packages.
 
 <img src="images/Nginx-Installation.png" alt="Nginx installation process" width="500"/>
 
+---
 
 The Service status was verified using `systemctl status nginx` to confirm that the server was active and running.
 
@@ -91,6 +90,23 @@ systemctl status nginx
 
 #### b) Simulating DDoS Attack
 
+**ApacheBench Load Test**
+
+The command `ab -n 100000 -c 100 http://127.0.0.1/` was used to simulate 100,000 requests with a concurrency level of 100.  
+This kind of stress test is designed to evaluate how the web server handles a sudden burst of requests, which resembles a Denial-of-Service (DoS) scenario.  
+
+The picture under shows the execution progress of ApacheBench, including milestones of completed requests and the final summary confirming that all 100,000 requests were processed successfully without errors.  
+This demonstrates that the server was capable of maintaining stability under significant load.
+
+<img src="images/DDoS-ApacheBenchmark.png" alt="ApacheBench DDoS simulation" width="500"/>
+
+---
+**CPU Load Monitoring**
+
+While the ApacheBench test was running, system resource usage was monitored with the `htop` command.  
+The screenshot shows that the CPU load peaked at around **26%**, illustrating how the system handled the stress test during the simulated DDoS attack.
+
+<img src="images/DDoS-CPUload.png" alt="CPU load during DDoS simulation" width="500"/>
 
 
 
