@@ -45,6 +45,12 @@ so that performance benchmarks take place in a controlled environment without in
 Unnecessary services can be disabled to avoid extra resource usage or unintended exposure.
 
 
+To list the open network ports, the command `ss -tuln` was used.  
+This is the modern replacement for `netstat -tuln` and provides the same information 
+about active TCP and UDP sockets.
+
+
+
 
 ### 2. Webserver Setup and Local Load Testing
 
