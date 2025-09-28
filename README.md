@@ -231,8 +231,69 @@ This comparison validates the **functional equivalence** of both setups while sh
 
 
 
-
-
-
-
 ### 4. High-Concurrency Stress Test
+
+
+**📊 Analyze Request Threshold for DDoS (One Million Requests)**
+
+The system was stress-tested with **1,000,000 requests** at a concurrency level of **1000** using Apache Benchmark (`ab`).  
+This experiment was designed to determine the **maximum request threshold** the server could handle before risking unresponsiveness or failure.  
+Such stress testing provides valuable insights into **scalability, fault tolerance, and robustness** of the system under near-extreme load conditions.  
+
+
+
+💻 **Commands Used**  
+```bash
+# Stress test with 1 million requests and concurrency 1000
+ab -n 1000000 -c 1000 http://127.0.0.1
+```
+
+
+---
+
+📑 **Results Overview**  
+
+| Metric                | Value             |
+|-----------------------|-------------------|
+| Total Requests Sent   | 1,000,000         |
+| Concurrency Level     | 1000              |
+| Outcome               | ✅ No crash, fully stable |
+| Peak CPU Load Observed| ~**9.8%**         |
+
+
+---
+
+🔎 **Analysis**  
+
+**Stability under extreme load:**  
+The server successfully processed **1 million requests** without crashing or becoming unresponsive, highlighting strong stability even under simulated DDoS-like conditions.  
+
+**Efficient resource utilization:**  
+CPU load remained at ~**9.8%**, which is notably efficient given the high concurrency level. This suggests the server can handle intensive workloads without exhausting system resources.  
+
+**Scalability confirmed:**  
+By sustaining a concurrency of **1000**, the system demonstrated scalability, validating its ability to support high levels of parallel traffic.  
+
+**Practical implication:**  
+These results indicate that the system is capable of withstanding sudden surges in traffic while maintaining availability—an essential capability for environments exposed to real-world denial-of-service threats.  
+
+---
+
+🔄 **Comparison with Earlier Tests**  
+
+| Test Scenario         | Requests Sent | Concurrency | Peak CPU Load | Outcome                        |
+|-----------------------|---------------|-------------|---------------|--------------------------------|
+| Host (bare-metal)     | 100,000       | 100         | 🔴 **26%**     | Stable, no crash               |
+| Docker container      | 100,000       | 100         | 🟢 **9.8%**    | Stable, no crash               |
+| Stress Threshold (Docker)| 1,000,000   | 1000        | 🟢 **~9.8%**   | Stable, no crash (very resilient)|
+
+---
+
+✅ **Takeaway:**  
+This progression shows how the system scaled from handling **100k requests** (both host and Docker) to **1 million requests** under **10x concurrency** without degradation.  
+This highlights not only the system’s **raw performance capacity**, but also the **efficiency and resilience** of the Dockerized environment under stress.  
+
+
+
+
+
