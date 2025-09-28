@@ -240,7 +240,8 @@ The system was stress-tested with **1,000,000 requests** at a concurrency level 
 This experiment was designed to determine the **maximum request threshold** the server could handle before risking unresponsiveness or failure.  
 Such stress testing provides valuable insights into **scalability, fault tolerance, and robustness** of the system under near-extreme load conditions.  
 
-<img src="images/ApacheBench-1M-Requests.jpg" alt="Apache Benchmark 1M requests" width="500"/>
+<img src="images/ApacheBench-1M-Requests.png" alt="Apache Benchmark 1M requests" width="500"/>
+
 
 
 💻 **Commands Used**  
