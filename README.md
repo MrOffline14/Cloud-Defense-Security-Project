@@ -196,6 +196,43 @@ htop
 
 
 
+#### c) Comparison: Host vs Docker
+
+The benchmarking results reveal a clear distinction between running **Nginx directly on the host system** versus inside a **Docker container**. Both tests were executed under identical conditions with ApacheBench (`ab -n 100000 -c 100`), ensuring the comparison is **fair and reproducible**.  
+
+---
+
+📊 **Benchmark Summary**
+
+| Environment       | Requests Sent | Concurrency | Peak CPU Load |
+|-------------------|---------------|-------------|---------------|
+| 🖥️ Host (bare-metal) | 100,000       | 100         | 🔴 **26%**    |
+| 📦 Docker container  | 100,000       | 100         | 🟢 **9.8%**   |
+
+
+
+🔎 **Analysis**  
+
+- On bare metal, CPU utilization peaked at **26%**, while the Dockerized environment consumed **less than half** of that at **9.8%**.  
+- Containerization introduces measurable differences in **workload scheduling** and **isolation** at the system level.  
+- The reduced CPU load in Docker highlights how **abstraction layers** can enable more efficient task distribution, though at the expense of an additional software stack between the hardware and application.  
+- This demonstrates the trade-off between:  
+  - ⚡ **Maximum raw performance** (host)  
+  - 🔄 **Operational benefits** (Docker) — portability, reproducibility, and alignment with cloud-native deployment models.  
+
+
+
+✅ **Key Takeaway:**  
+This comparison validates the **functional equivalence** of both setups while showing why containerized environments dominate modern infrastructure: they balance **efficiency, scalability, and isolation** against minimal performance overhead.
+
+
+
+
+
+
+
+
+
 
 
 ### 4. High-Concurrency Stress Test
