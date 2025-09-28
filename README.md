@@ -189,18 +189,12 @@ ab -n 100000 -c 100 http://127.0.0.1/
 # Monitor CPU load while the container is under stress
 htop
 ```
-
-
-<!-- which is significantly lower than the **26%** observed when running Nginx directly on the host system. This demonstrates the performance differences introduced by containerization.-->
-
-
-
+---
 
 #### c) Comparison: Host vs Docker
 
 The benchmarking results reveal a clear distinction between running **Nginx directly on the host system** versus inside a **Docker container**. Both tests were executed under identical conditions with ApacheBench (`ab -n 100000 -c 100`), ensuring the comparison is **fair and reproducible**.  
 
----
 
 📊 **Benchmark Summary**
 
@@ -227,7 +221,7 @@ This comparison validates the **functional equivalence** of both setups while sh
 
 
 
-
+---
 
 
 
@@ -263,8 +257,6 @@ ab -n 1000000 -c 1000 http://127.0.0.1
 | Peak CPU Load Observed| ~**9.8%**         |
 
 
----
-
 🔎 **Analysis**  
 
 **Stability under extreme load:**  
@@ -277,9 +269,9 @@ CPU load remained at ~**9.8%**, which is notably efficient given the high concur
 By sustaining a concurrency of **1000**, the system demonstrated scalability, validating its ability to support high levels of parallel traffic.  
 
 **Practical implication:**  
-These results indicate that the system is capable of withstanding sudden surges in traffic while maintaining availability—an essential capability for environments exposed to real-world denial-of-service threats.  
+These results indicate that the system is capable of withstanding sudden surges in traffic while maintaining availability, which represents a critical capability for environments that are exposed to real-world denial-of-service threats. This resilience highlights not only the robustness of the server under high concurrency but also its reliability in scenarios where continuous availability is essential for operational stability.
 
----
+
 
 🔄 **Comparison with Earlier Tests**  
 
@@ -289,7 +281,7 @@ These results indicate that the system is capable of withstanding sudden surges 
 | Docker container      | 100,000       | 100         | 🟢 **9.8%**    | Stable, no crash               |
 | Stress Threshold (Docker)| 1,000,000   | 1000        | 🟢 **~9.8%**   | Stable, no crash (very resilient)|
 
----
+
 
 ✅ **Takeaway:**  
 This progression shows how the system scaled from handling **100k requests** (both host and Docker) to **1 million requests** under **10x concurrency** without degradation.  
