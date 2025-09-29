@@ -1,10 +1,33 @@
 # Cloud-Defense-Security-Project
 
+
+## Table of Contents
+- [System Perfomance Benchmarking and Load Testing](#system-perfomance-benchmarking-and-load-testing)
+   - [System Information Analysis](#system-information-analysis)
+   - [CPU / Cores and Bogomips](#cpu--cores-and-bogomips)
+   - [CPU Vulnerabilities](#cpu-vulnerabilities)
+   - [Bogomips Verification](#bogomips-verification)
+   - [Open Network Ports](#open-network-ports)
+- [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)
+   - [Nginx Installation](#nginx-installation)
+   - [Simulating DDoS Attack](#simulating-ddos-attack)
+   - [ApacheBench Load Test](#apachebench-load-test)
+   - [CPU Load Monitoring](#cpu-load-monitoring)
+ - [Containerized Load Testing with Docker](#containerized-load-testing-with-docker)
+   - [Installing Docker](#installing-docker)
+ - [Simulating DDoS Attack in Docker](#simulating-ddos-attack-in-docker)
+   - [Apache Benchmark Execution](#apache-benchmark-execution-ab)
+   - [System Resource Monitoring](#system-resource-monitoring-htop)
+   - [Comparison: Host vs Docker](#comparison-host-vs-docker)
+ - [High-Concurrency Stress Test](#high-concurrency-stress-test)
+  - [Analyze Request Threshold for DDoS (One Million Requests)](#-analyze-request-threshold-for-ddos-one-million-requests)
+
+
 ## System Perfomance Benchmarking and Load Testing
 This part of the project demonstrates how to analyze system resources, test performance under load, compare a web server on the host versus in a container, and perform stress tests with high concurrency.
 
-### 1. System Information Analysis
-#### a) CPU / Cores and Bogomips
+### System Information Analysis
+#### CPU / Cores and Bogomips
 The first step towards perfomance benchmarking and load testing is collecting information about system's processor. This includes number of cores and the Bogomips value per core, providing a baseline understanding of the system's capacity and hardware characteristics.
 
 The screenshot shows the result of running the `lscpu` command, which provides details such as CPU architecture, model, number of cores, and the Bogomips value.
@@ -40,7 +63,7 @@ cat/proc/cpuinfo | grep bogomips
 ```
 
 
-#### b) Open Network Ports
+#### Open Network Ports
 
 Checking open ports helps verify which services are actively listening on the system. 
 In this project, the purpose is to confirm that only the necessary services (e.g., NGINX for load testing) are running, 
@@ -64,8 +87,8 @@ ss -tuln
 ```
 
 
-### 2. Webserver Setup and Local Load Testing
-#### a) Nginx Installation
+### Webserver Setup and Local Load Testing
+#### Nginx Installation
 
 The next step is to set up a web server to be used for load testing.  
 For this project, **Nginx** was chosen due to its lightweight design and high performance.  
@@ -95,7 +118,7 @@ sudo apt install nginx
 systemctl status nginx
 ```
 
-#### b) Simulating DDoS Attack
+#### Simulating DDoS Attack
 
 **ApacheBench Load Test**
 
@@ -131,10 +154,10 @@ htop
 ```
 
 
-### 3. Containerized Load Testing with Docker
+### Containerized Load Testing with Docker
 
 **Load Testing with Docker**
-#### a) Installing Docker
+#### Installing Docker
 Docker was introduced at this stage to extend the benchmarking from a bare-metal setup into a containerized environment. It was installed on the system using `sudo apt install docker.io`, and the Nginx web server was later started inside a container with `sudo docker run -d -p 80:80 nginx`. This made it possible to compare raw host performance with containerized performance, reflecting modern deployment practices where containers are widely used.  
 
 A containerized setup ensures consistency by packaging the application with its dependencies, while also providing process isolation and options for fine-grained resource control. This allows for reproducible experiments and highlights the trade-off between efficiency and flexibility.  
@@ -152,7 +175,7 @@ sudo apt install docker.io
 sudo docker run -d -p 80:80 nginx
 ```
 
-#### b) Simulating DDoS Attack in Docker
+#### Simulating DDoS Attack in Docker
 
 After installing Docker and running Nginx inside a container, the same Apache Benchmark (ab) stress test was repeated to observe performance differences compared to running Nginx directly on the host.
 
@@ -191,7 +214,7 @@ htop
 ```
 ---
 
-#### c) Comparison: Host vs Docker
+#### Comparison: Host vs Docker
 
 The benchmarking results reveal a clear distinction between running **Nginx directly on the host system** versus inside a **Docker container**. Both tests were executed under identical conditions with ApacheBench (`ab -n 100000 -c 100`), ensuring the comparison is **fair and reproducible**.  
 
@@ -225,7 +248,7 @@ This comparison validates the **functional equivalence** of both setups while sh
 
 
 
-### 4. High-Concurrency Stress Test
+### High-Concurrency Stress Test
 
 
 **📊 Analyze Request Threshold for DDoS (One Million Requests)**
