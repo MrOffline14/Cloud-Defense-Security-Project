@@ -2,25 +2,25 @@
 
 ## Table of Contents
 
-- [System Perfomance Benchmarking and Load Testing](#system-perfomance-benchmarking-and-load-testing)
-  - 1 [System Information Analysis](#system-information-analysis)
-    - 1.1 [CPU / Cores and Bogomips](#cpu--cores-and-bogomips)
-    - 1.2 [CPU Vulnerabilities](#cpu-vulnerabilities)
-    - 1.3 [Bogomips Verification](#bogomips-verification)
-    - 1.4 [Open Network Ports](#open-network-ports)
-  - 2 [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)
-    - 2.1 [Nginx Installation](#nginx-installation)
-    - 2.2 [Simulating DDoS Attack](#simulating-ddos-attack)
-      - 2.2.1 [ApacheBench Load Test](#apachebench-load-test)
-      - 2.2.2 [CPU Load Monitoring](#cpu-load-monitoring)
-  - 3 [Containerized Load Testing with Docker](#containerized-load-testing-with-docker)
-    - 3.1 [Load Testing with Docker](#load-testing-with-docker)
-      - 3.1.1 [Installing Docker](#installing-docker)
-      - 3.1.2 [Simulating DDoS Attack in Docker](#simulating-ddos-attack-in-docker)
-    - 3.2 [System Resource Monitoring (htop)](#system-resource-monitoring-htop)
-    - 3.3 [Comparison: Host vs Docker](#comparison-host-vs-docker)
-  - 4 [High-Concurrency Stress Test](#high-concurrency-stress-test)
-    - 4.1 [Analyze Request Threshold for DDoS (One Million Requests)](#-analyze-request-threshold-for-ddos-one-million-requests)
+- [System Perfomance Benchmarking and Load Testing](#system-perfomance-benchmarking-and-load-testing)  
+  - 1 [System Information Analysis](#system-information-analysis)  
+    - 1.1 [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
+    - 1.2 [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
+    - 1.3 [Bogomips Validation](#bogomips-validation)  
+    - 1.4 [Network Service Enumeration (Open Ports Analysis)](#network-service-enumeration-open-ports-analysis)  
+  - 2 [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)  
+    - 2.1 [Nginx Deployment and Service Validation](#nginx-deployment-and-service-validation)  
+    - 2.2 [DDoS - Load Stress Simulation using ApacheBench](#ddos---load-stress-simulation-using-apachebench)  
+      - 2.2.1 [High-Volume Request Execution (100k Requests @ Concurrency 100)](#high-volume-request-execution-100k-requests--concurrency-100)  
+      - 2.2.2 [Real-Time CPU Utilization Monitoring](#real-time-cpu-utilization-monitoring)  
+  - 3 [Containerized Load Testing with Docker](#containerized-load-testing-with-docker)  
+    - 3.1 [Dockerized Environment Benchmarking (Nginx in Containers)](#dockerized-environment-benchmarking-nginx-in-containers)  
+    - 3.2 [Containerized DDoS Load Simulation (ApacheBench 100k)](#containerized-ddos-load-simulation-apachebench-100k)  
+    - 3.3 [Container Resource Utilization Analysis](#container-resource-utilization-analysis)  
+    - 3.4 [Comparison: Host vs Docker under Simulated DDoS Load](#comparison-host-vs-docker-under-simulated-ddos-load)  
+  - 4 [High-Concurrency Stress Test](#high-concurrency-stress-test)  
+    - 4.1 [Extreme Load Benchmarking (1M Requests @ Concurrency 1000)](#-extreme-load-benchmarking-1m-requests--concurrency-1000)  
+
 
 
 
@@ -123,9 +123,9 @@ sudo apt install nginx
 systemctl status nginx
 ```
 
-#### Load Stress Simulation (simulated DDoS) using ApacheBench
+### DDoS - Load Stress Simulation using ApacheBench
 
-**ApacheBench Load Test**
+#### High-Volume Request Execution (100k Requests @ Concurrency 100)
 
 The command `ab -n 100000 -c 100 http://127.0.0.1/` was used to simulate 100,000 requests with a concurrency level of 100.  
 This kind of stress test is designed to evaluate how the web server handles a sudden burst of requests, which resembles a Denial-of-Service (DoS) scenario.  
@@ -137,7 +137,7 @@ This demonstrates that the server was capable of maintaining stability under sig
 <img src="images/DDoS-ApacheBenchmark.png" alt="ApacheBench DDoS simulation" width="500"/>
 
 ---
-**CPU Load Monitoring**
+#### Real-Time CPU Utilization Monitoring
 
 While the ApacheBench test was running, system resource usage was monitored using the `htop` command. The picture shows CPU utilization during the peak of the test, where the highest observed load reached **26%**.
 
@@ -161,8 +161,8 @@ htop
 
 ### Containerized Load Testing with Docker
 
-**Load Testing with Docker**
-#### Installing Docker
+
+#### Dockerized Environment Benchmarking (Nginx in Containers)
 Docker was introduced at this stage to extend the benchmarking from a bare-metal setup into a containerized environment. It was installed on the system using `sudo apt install docker.io`, and the Nginx web server was later started inside a container with `sudo docker run -d -p 80:80 nginx`. This made it possible to compare raw host performance with containerized performance, reflecting modern deployment practices where containers are widely used.  
 
 A containerized setup ensures consistency by packaging the application with its dependencies, while also providing process isolation and options for fine-grained resource control. This allows for reproducible experiments and highlights the trade-off between efficiency and flexibility.  
@@ -180,13 +180,13 @@ sudo apt install docker.io
 sudo docker run -d -p 80:80 nginx
 ```
 
-#### Simulating DDoS Attack in Docker
+#### Containerized DDoS Load Simulation (ApacheBench 100k)
 
 After installing Docker and running Nginx inside a container, the same Apache Benchmark (ab) stress test was repeated to observe performance differences compared to running Nginx directly on the host.
 
 The goal was to evaluate how containerization impacts CPU utilization and request handling under heavy load.
 
-**Apache Benchmark Execution (ab):**
+*Apache Benchmark Execution (ab):*
 The following image shows the execution of the Apache Benchmark command:
 
 `ab -n 100000 -c 100 http://127.0.0.1/`
@@ -197,7 +197,7 @@ This command simulates 100,000 HTTP requests with a concurrency level of 100, ta
 
 ---
 
-**System Resource Monitoring (htop):**  
+#### Container Resource Utilization Analysis
 
 The system resource usage was monitored in real-time using the `htop` command.
 
@@ -219,7 +219,7 @@ htop
 ```
 ---
 
-#### Comparison: Host vs Docker
+#### Comparison: Host vs Docker under Simulated DDoS Load
 
 The benchmarking results reveal a clear distinction between running **Nginx directly on the host system** versus inside a **Docker container**. Both tests were executed under identical conditions with ApacheBench (`ab -n 100000 -c 100`), ensuring the comparison is **fair and reproducible**.  
 
@@ -256,7 +256,7 @@ This comparison validates the **functional equivalence** of both setups while sh
 ### High-Concurrency Stress Test
 
 
-**📊 Analyze Request Threshold for DDoS (One Million Requests)**
+#### 📊 Extreme Load Benchmarking (1M Requests @ Concurrency 1000)
 
 The system was stress-tested with **1,000,000 requests** at a concurrency level of **1000** using Apache Benchmark (`ab`).  
 This experiment was designed to determine the **maximum request threshold** the server could handle before risking unresponsiveness or failure.  
