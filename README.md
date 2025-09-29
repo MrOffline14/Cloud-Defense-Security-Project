@@ -1,8 +1,5 @@
 # Cloud-Defense-Security-Project
 
-
-## Table of Contents
-
 ## Table of Contents
 
 - [System Perfomance Benchmarking and Load Testing](#system-perfomance-benchmarking-and-load-testing)
@@ -33,7 +30,7 @@
 This part of the project demonstrates how to analyze system resources, test performance under load, compare a web server on the host versus in a container, and perform stress tests with high concurrency.
 
 ### System Information Analysis
-#### CPU / Cores and Bogomips
+#### CPU Architecture Profiling (Cores and Bogomips)
 The first step towards perfomance benchmarking and load testing is collecting information about system's processor. This includes number of cores and the Bogomips value per core, providing a baseline understanding of the system's capacity and hardware characteristics.
 
 The screenshot shows the result of running the `lscpu` command, which provides details such as CPU architecture, model, number of cores, and the Bogomips value.
@@ -44,12 +41,14 @@ The screenshot shows the result of running the `lscpu` command, which provides d
 
 ---
 
+#### Hardware Vulnerability Enumeration and Mitigation
 
 `lscpu` also lists CPU vulnerabilities along with mitigation details as shown under, which show the security measures the system applies to reduce the risk of exploiting known hardware vulnerabilities.
 
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 
 ---
+#### Bogomips Validation
 
 *Additionally, `cat /proc/cpuinfo | grep bogomips` can be used to confirm the Bogomips value directly from the CPU info file, showing identical results for each core.*
 
@@ -69,7 +68,7 @@ cat/proc/cpuinfo | grep bogomips
 ```
 
 
-#### Open Network Ports
+#### Network Service Enumeration (Open Ports Analysis)
 
 Checking open ports helps verify which services are actively listening on the system. 
 In this project, the purpose is to confirm that only the necessary services (e.g., NGINX for load testing) are running, 
@@ -94,7 +93,7 @@ ss -tuln
 
 
 ### Webserver Setup and Local Load Testing
-#### Nginx Installation
+#### Nginx Deployment and Service Validation
 
 The next step is to set up a web server to be used for load testing.  
 For this project, **Nginx** was chosen due to its lightweight design and high performance.  
@@ -124,7 +123,7 @@ sudo apt install nginx
 systemctl status nginx
 ```
 
-#### Simulating DDoS Attack
+#### Load Stress Simulation (simulated DDoS) using ApacheBench
 
 **ApacheBench Load Test**
 
