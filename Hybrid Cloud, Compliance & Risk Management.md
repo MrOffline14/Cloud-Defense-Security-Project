@@ -14,24 +14,24 @@ The outcome demonstrates a practical approach to **hybrid cloud adoption, regula
 
 ## 📑 Table of Contents  
 
-- [Cloud Service & Deployment Strategy](#cloud-service--deployment-strategy)  
-  - [Service Model: Platform as a Service (PaaS)](#service-model-platform-as-a-service-paas)  
-  - [Deployment Model: Hybrid Cloud](#deployment-model-hybrid-cloud)  
-  - [Trade-Offs Analysis](#trade-offs-analysis)  
+- [Cloud Service & Deployment Strategy](#1-cloud-service--deployment-strategy)  
+  - [Service Model: Platform as a Service (PaaS)](#11-service-model-platform-as-a-service-paas)  
+  - [Deployment Model: Hybrid Cloud](#12-deployment-model-hybrid-cloud)  
+  - [Trade-Offs Analysis](#13-trade-offs-analysis)  
 
-- [Regulatory & Compliance Framework](#regulatory--compliance-framework)  
-  - [Applicable Regulations (GDPR, CCPA, ISO 27001, Cross-Border Transfers)](#applicable-regulations)  
-  - [Compliance Recommendations](#compliance-recommendations)  
+- [Regulatory & Compliance Framework](#2-regulatory--compliance-framework)  
+  - [Applicable Regulations (GDPR, CCPA, ISO 27001, Cross-Border Transfers)](#21-applicable-regulations)  
+  - [Compliance Recommendations](#22-compliance-recommendations)  
 
-- [Security Training & Development Lifecycle](#security-training--development-lifecycle)  
-  - [Training Phases for New Developers & Architects](#training-phases-for-new-developers--architects)  
-  - [Microsoft SDL Framework Adoption](#microsoft-sdl-framework-adoption)  
-  - [Secure Development Practices](#secure-development-practices)  
+- [Security Training & Development Lifecycle](#3-security-training--development-lifecycle)  
+  - [Training Phases for New Developers & Architects](#31-training-phases-for-new-developers--architects)  
+  - [Microsoft SDL Framework Adoption](#32-microsoft-sdl-framework-adoption)  
+  - [Secure Development Practices](#33-secure-development-practices)  
 
-- [Risk Management & Business Continuity](#risk-management--business-continuity)  
-  - [Security Plan with NIST CSF Core Elements](#security-plan-with-nist-csf-core-elements)  
-  - [Risk Assessment for bcdr](#risk-assessment-for-bcdr)  
-  - [Recommendations for Disaster Recovery](#recommendations-for-disaster-recovery)  
+- [Risk Management & Business Continuity](#4-risk-management--business-continuity)  
+  - [Security Plan with NIST CSF Core Elements](#41-security-plan-with-nist-csf-core-elements)  
+  - [Risk Assessment for BC/DR](#42-risk-assessment-for-bcdr)  
+  - [Recommendations for Disaster Recovery](#43-recommendations-for-disaster-recovery)  
 
 ---
 
