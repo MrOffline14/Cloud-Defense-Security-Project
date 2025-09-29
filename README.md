@@ -37,7 +37,7 @@ The screenshot shows the result of running the `lscpu` command, which provides d
  **Number of CPUs/Core:** 2   **BogoMips per core:** 5587.06  
 <img src="images/CPU-Information(lscpu).png" alt="CPU Info (lscpu)" width="500"/> 
 
----
+
 
 #### Hardware Vulnerability Enumeration and Mitigation
 
@@ -45,25 +45,12 @@ The screenshot shows the result of running the `lscpu` command, which provides d
 
 <img src="images/CPU-vuln.png" alt="CPU Vulnerabilities" width="500"/> 
 
----
+
 #### Bogomips Validation
 
 *Additionally, `cat /proc/cpuinfo | grep bogomips` can be used to confirm the Bogomips value directly from the CPU info file, showing identical results for each core.*
 
 <img src="images/CPU-Bogomips-verify.png" alt="Bogomips from /proc/cpuinfo" width="500"/> 
-
-
-
-
-**Commands Used:**
-```bash
-# Display detailed CPU architecture, including cores, threads, bogomips, and vulnerabilities
-lscpu
-
-# Verify bogomips value directly from /proc/cpuinfo for each core
-cat/proc/cpuinfo | grep bogomips
-
-```
 
 
 #### Network Service Enumeration (Open Ports Analysis)
@@ -83,12 +70,19 @@ about active TCP and UDP sockets.
 
 <img src="images/NetworkPorts-services.png" alt="Open network ports" width="500"/>
 
-**Commands Used:**
+💻**Commands Used:**
 ```bash
+
+# Display detailed CPU architecture, including cores, threads, bogomips, and vulnerabilities
+lscpu
+
+# Verify bogomips value directly from /proc/cpuinfo for each core
+cat/proc/cpuinfo | grep bogomips
+
 # List all listening TCP and UDP ports with socket details
 ss -tuln
 ```
-
+---
 
 ### Webserver Setup and Local Load Testing
 #### Nginx Deployment and Service Validation
@@ -102,28 +96,15 @@ The installation process downloaded and configured the necessary packages.
 
 <img src="images/Nginx-Installation.png" alt="Nginx installation process" width="500"/>
 
----
 
 The Service status was verified using `systemctl status nginx` to confirm that the server was active and running.
 
 <img src="images/Nginx-status.png" alt="Nginx service status" width="500"/>
 
 
+#### DDoS - Load Stress Simulation using ApacheBench
 
-
-
-**Commands Used:**  
-```bash
-# Install the Nginx web server package
-sudo apt install nginx
-
-# Check that the Nginx service is loaded, enabled, and running
-systemctl status nginx
-```
-
-### DDoS - Load Stress Simulation using ApacheBench
-
-#### High-Volume Request Execution (100k Requests @ Concurrency 100)
+##### High-Volume Request Execution (100k Requests @ Concurrency 100)
 
 The command `ab -n 100000 -c 100 http://127.0.0.1/` was used to simulate 100,000 requests with a concurrency level of 100.  
 This kind of stress test is designed to evaluate how the web server handles a sudden burst of requests, which resembles a Denial-of-Service (DoS) scenario.  
@@ -134,8 +115,8 @@ This demonstrates that the server was capable of maintaining stability under sig
 
 <img src="images/DDoS-ApacheBenchmark.png" alt="ApacheBench DDoS simulation" width="500"/>
 
----
-#### Real-Time CPU Utilization Monitoring
+
+##### Real-Time CPU Utilization Monitoring
 
 While the ApacheBench test was running, system resource usage was monitored using the `htop` command. The picture shows CPU utilization during the peak of the test, where the highest observed load reached **26%**.
 
@@ -147,15 +128,21 @@ In this case, the relatively low CPU load under stress confirms that the bottlen
 <img src="images/DDoS-CPUload.png" alt="CPU load during DDoS simulation" width="500"/>
 
 
-**Commands Used:**  
+💻**Commands Used:**  
 ```bash
+# Install the Nginx web server package
+sudo apt install nginx
+
+# Check that the Nginx service is loaded, enabled, and running
+systemctl status nginx
+
 # Run ApacheBench with 100,000 requests and concurrency level 100
 ab -n 100000 -c 100 http://127.0.0.1/
 
 # Monitor system resources during the load test
 htop
 ```
-
+---
 
 ### Containerized Load Testing with Docker
 
@@ -169,14 +156,6 @@ In practice, repeating the experiment in Docker not only offers comparative data
 
 <img src="images/Docker-Install.png" alt="Docker Installation" width="500"/>
 
-**Commands Used:**  
-```bash
-# Install Docker engine
-sudo apt install docker.io
-
-# Run an Nginx container on port 80
-sudo docker run -d -p 80:80 nginx
-```
 
 #### Containerized DDoS Load Simulation (ApacheBench 100k)
 
@@ -193,7 +172,6 @@ This command simulates 100,000 HTTP requests with a concurrency level of 100, ta
 
 <img src="images/Docker-AB-Benchmark.png" alt="Apache Benchmark in Docker" width="500"/>
 
----
 
 #### Container Resource Utilization Analysis
 
@@ -205,17 +183,6 @@ The CPU utilization peaked at approximately **9.8%**
 
 <img src="images/Docker-CPU-Load.png" alt="CPU Load during Docker Benchmark" width="500"/>
 
-
-
-**Commands Used:**  
-```bash
-# Simulate 100,000 HTTP requests with concurrency 100 inside Docker
-ab -n 100000 -c 100 http://127.0.0.1/
-
-# Monitor CPU load while the container is under stress
-htop
-```
----
 
 #### Comparison: Host vs Docker under Simulated DDoS Load
 
@@ -245,7 +212,20 @@ The benchmarking results reveal a clear distinction between running **Nginx dire
 ✅ **Key Takeaway:**  
 This comparison validates the **functional equivalence** of both setups while showing why containerized environments dominate modern infrastructure: they balance **efficiency, scalability, and isolation** against minimal performance overhead.
 
+💻**Commands Used:**  
+```bash
+# Install Docker engine
+sudo apt install docker.io
 
+# Run an Nginx container on port 80
+sudo docker run -d -p 80:80 nginx
+
+# Simulate 100,000 HTTP requests with concurrency 100 inside Docker
+ab -n 100000 -c 100 http://127.0.0.1/
+
+# Monitor CPU load while the container is under stress
+htop
+```
 
 ---
 
@@ -261,15 +241,6 @@ This experiment was designed to determine the **maximum request threshold** the 
 Such stress testing provides valuable insights into **scalability, fault tolerance, and robustness** of the system under near-extreme load conditions.  
 
 <img src="images/ApacheBench-1M-Requests.png" alt="Apache Benchmark 1M requests" width="500"/>
-
-
-
-💻 **Commands Used**  
-```bash
-# Stress test with 1 million requests and concurrency 1000
-ab -n 1000000 -c 1000 http://127.0.0.1
-```
-
 
 ---
 
@@ -313,6 +284,12 @@ These results indicate that the system is capable of withstanding sudden surges 
 This progression shows how the system scaled from handling **100k requests** (both host and Docker) to **1 million requests** under **10x concurrency** without degradation.  
 This highlights not only the system’s **raw performance capacity**, but also the **efficiency and resilience** of the Dockerized environment under stress.  
 
+
+💻 **Commands Used**  
+```bash
+# Stress test with 1 million requests and concurrency 1000
+ab -n 1000000 -c 1000 http://127.0.0.1
+```
 
 
 
