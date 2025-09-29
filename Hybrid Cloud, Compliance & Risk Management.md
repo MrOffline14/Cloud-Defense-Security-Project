@@ -95,7 +95,7 @@ By adopting these practices, the organization demonstrates proactive risk manage
 
 ## 3. Security Training & Development Lifecycle  
 
-<img src="images/SSDLc.jpg" alt="Security Software Development Lifecycle (SSDLc)" width="500"/>  
+<img src="images/SSDLC.jpg" alt="Security Software Development Lifecycle (SSDLC)" width="500"/>  
 
 ### 3.1 Training Phases for New Developers & Architects  
 - **Cloud Security Fundamentals**: Teach shared responsibility models in Azure, covering AD, Key Vault, and Policy.  
