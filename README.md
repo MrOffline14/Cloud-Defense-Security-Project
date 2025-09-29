@@ -2,26 +2,24 @@
 
 ## Table of Contents
 
-- [System Perfomance Benchmarking and Load Testing](#system-perfomance-benchmarking-and-load-testing)  
-  - 1 [System Information Analysis](#system-information-analysis)  
-    - 1.1 [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
-    - 1.2 [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
-    - 1.3 [Bogomips Validation](#bogomips-validation)  
-    - 1.4 [Network Service Enumeration (Open Ports Analysis)](#network-service-enumeration-open-ports-analysis)  
-  - 2 [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)  
-    - 2.1 [Nginx Deployment and Service Validation](#nginx-deployment-and-service-validation)  
-    - 2.2 [DDoS - Load Stress Simulation using ApacheBench](#ddos---load-stress-simulation-using-apachebench)  
-      - 2.2.1 [High-Volume Request Execution (100k Requests @ Concurrency 100)](#high-volume-request-execution-100k-requests--concurrency-100)  
-      - 2.2.2 [Real-Time CPU Utilization Monitoring](#real-time-cpu-utilization-monitoring)  
-  - 3 [Containerized Load Testing with Docker](#containerized-load-testing-with-docker)  
-    - 3.1 [Dockerized Environment Benchmarking (Nginx in Containers)](#dockerized-environment-benchmarking-nginx-in-containers)  
-    - 3.2 [Containerized DDoS Load Simulation (ApacheBench 100k)](#containerized-ddos-load-simulation-apachebench-100k)  
-    - 3.3 [Container Resource Utilization Analysis](#container-resource-utilization-analysis)  
-    - 3.4 [Comparison: Host vs Docker under Simulated DDoS Load](#comparison-host-vs-docker-under-simulated-ddos-load)  
-  - 4 [High-Concurrency Stress Test](#high-concurrency-stress-test)  
-    - 4.1 [Extreme Load Benchmarking (1M Requests @ Concurrency 1000)](#-extreme-load-benchmarking-1m-requests--concurrency-1000)  
-
-
+- [System Performance Benchmarking and Load Testing](#system-performance-benchmarking-and-load-testing)  
+  - [System Information Analysis](#system-information-analysis)  
+    - [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
+    - [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
+    - [Bogomips Validation and Consistency Check](#bogomips-validation-and-consistency-check)  
+    - [Network Service Enumeration (Open Ports Analysis)](#network-service-enumeration-open-ports-analysis)  
+  - [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)  
+    - [Nginx Deployment and Service Validation](#nginx-deployment-and-service-validation)  
+    - [DDoS Load Stress Simulation with ApacheBench](#ddos-load-stress-simulation-with-apachebench)  
+      - [High-Volume Request Execution (100k Requests @ Concurrency 100)](#high-volume-request-execution-100k-requests--concurrency-100)  
+      - [Real-Time CPU Utilization Monitoring](#real-time-cpu-utilization-monitoring)  
+  - [Containerized Load Testing with Docker](#containerized-load-testing-with-docker)  
+    - [Dockerized Environment Benchmarking (Nginx in Containers)](#dockerized-environment-benchmarking-nginx-in-containers)  
+    - [Containerized DDoS Load Simulation (ApacheBench 100k)](#containerized-ddos-load-simulation-apachebench-100k)  
+    - [Container Resource Utilization Analysis under Stress](#container-resource-utilization-analysis-under-stress)  
+    - [Comparative Benchmark: Host vs Docker under DDoS Load](#comparative-benchmark-host-vs-docker-under-ddos-load)  
+  - [High-Concurrency Stress Test](#high-concurrency-stress-test)  
+    - [Extreme Load Benchmarking (1M Requests @ Concurrency 1000)](#extreme-load-benchmarking-1m-requests--concurrency-1000)  
 
 
 
