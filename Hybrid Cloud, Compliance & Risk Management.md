@@ -36,6 +36,8 @@ The outcome demonstrates a practical approach to **hybrid cloud adoption, regula
 ### 1.1 Service Model: Platform as a Service (PaaS)  
 📊 **Recommendation:** Utilize **PaaS** for IoT development and analytics.  
 
+<img src="images/PaaS.png" alt="Platform as a Service (PaaS)" width="500"/>  
+
 **Advantages:**  
 - 🔧 **Development Efficiency**: APIs and toolsets accelerate IoT solution development. By reducing the operational burden of managing infrastructure, teams can focus directly on building scalable IoT services.  
 - 📈 **Scalability**: Auto-scaling to handle large IoT data streams. This ensures elasticity when demand spikes, which is vital for sensor-driven environments.  
@@ -46,6 +48,8 @@ The outcome demonstrates a practical approach to **hybrid cloud adoption, regula
 
 ### 1.2 Deployment Model: Hybrid Cloud  
 📊 **Recommendation:** Adopt a **Hybrid Cloud** (private + public Azure).  
+
+<img src="images/Cloud-Infrastructure-Architecture.png" alt="Cloud Infrastructure & Compliance Architecture" width="500"/>  
 
 **Advantages:**  
 - 🌍 **Global Expansion**: Ensures compliance with data sovereignty rules across EU and US while enabling worldwide deployment.  
@@ -91,6 +95,8 @@ By adopting these practices, the organization demonstrates proactive risk manage
 
 ## 3. Security Training & Development Lifecycle  
 
+<img src="images/SSDLc.jpg" alt="Security Software Development Lifecycle (SSDLc)" width="500"/>  
+
 ### 3.1 Training Phases for New Developers & Architects  
 - **Cloud Security Fundamentals**: Teach shared responsibility models in Azure, covering AD, Key Vault, and Policy.  
 - **Provider-Specific Training**: Focus on real-world application of Azure-native security services to reduce misconfiguration risks.  
@@ -126,6 +132,9 @@ Embedding these practices transforms security from a compliance obligation into 
 - **Detect**: Deploy monitoring and advanced detection tools to ensure visibility across EU and US networks.  
 - **Respond**: Build a global incident response plan harmonized with GDPR, NIS, and US laws.  
 - **Recover**: Implement geo-redundant backup and recovery plans across multiple Azure regions.  
+
+<img src="images/NIST-FRAMEWORK.png" alt="NIST Cybersecurity Framework" width="400"/>  
+
 
 The NIST CSF provides a **structured and flexible approach**, ensuring resilience and compliance simultaneously.  
 
