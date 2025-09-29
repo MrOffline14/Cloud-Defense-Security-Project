@@ -13,21 +13,25 @@ The outcome demonstrates a practical approach to **hybrid cloud adoption, regula
 ---
 
 ## 📑 Table of Contents  
-1. Cloud Service & Deployment Strategy  
-   - 1.1 Service Model: Platform as a Service (PaaS)  
-   - 1.2 Deployment Model: Hybrid Cloud  
-   - 1.3 Trade-Offs Analysis  
-2. Regulatory & Compliance Framework  
-   - 2.1 Applicable Regulations (GDPR, CCPA, ISO 27001, Cross-Border Transfers)  
-   - 2.2 Compliance Recommendations  
-3. Security Training & Development Lifecycle  
-   - 3.1 Training Phases for New Developers & Architects  
-   - 3.2 Microsoft SDL Framework Adoption  
-   - 3.3 Secure Development Practices  
-4. Risk Management & Business Continuity  
-   - 4.1 Security Plan with NIST CSF Core Elements  
-   - 4.2 Risk Assessment for BC/DR  
-   - 4.3 Recommendations for Disaster Recovery  
+
+- [Cloud Service & Deployment Strategy](#cloud-service--deployment-strategy)  
+  - [Service Model: Platform as a Service (PaaS)](#service-model-platform-as-a-service-paas)  
+  - [Deployment Model: Hybrid Cloud](#deployment-model-hybrid-cloud)  
+  - [Trade-Offs Analysis](#trade-offs-analysis)  
+
+- [Regulatory & Compliance Framework](#regulatory--compliance-framework)  
+  - [Applicable Regulations (GDPR, CCPA, ISO 27001, Cross-Border Transfers)](#applicable-regulations)  
+  - [Compliance Recommendations](#compliance-recommendations)  
+
+- [Security Training & Development Lifecycle](#security-training--development-lifecycle)  
+  - [Training Phases for New Developers & Architects](#training-phases-for-new-developers--architects)  
+  - [Microsoft SDL Framework Adoption](#microsoft-sdl-framework-adoption)  
+  - [Secure Development Practices](#secure-development-practices)  
+
+- [Risk Management & Business Continuity](#risk-management--business-continuity)  
+  - [Security Plan with NIST CSF Core Elements](#security-plan-with-nist-csf-core-elements)  
+  - [Risk Assessment for bcdr](#risk-assessment-for-bcdr)  
+  - [Recommendations for Disaster Recovery](#recommendations-for-disaster-recovery)  
 
 ---
 
