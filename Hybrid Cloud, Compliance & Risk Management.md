@@ -1,14 +1,18 @@
 # Cloud Architecture - Hybrid Cloud, Compliance & Risk Management  
 
 ## 📌 Executive Summary  
-This case study explores the design and implementation of a **secure, scalable, and compliant cloud architecture** for a rapidly expanding IT consultancy specializing in IoT services on **Microsoft Azure**. The project covers four critical domains:  
 
-- **Cloud Service & Deployment Models** (choosing PaaS and Hybrid Cloud to balance scalability, governance, and performance).  
-- **Regulatory Compliance** (GDPR, CCPA, ISO 27001, cross-border data frameworks).  
-- **Security Training & Governance** (integrating SSDLC best practices and Microsoft SDL framework).  
-- **Risk Management & Continuity Planning** (using NIST CSF to design resilience against global-scale threats).  
+This project began with a clear dilemma: how can a fast-growing IT consultancy expand its IoT services across Europe and the United States while still ensuring scalability, compliance, and resilience? The company’s growth created constant pressure to innovate while at the same time meeting strict requirements for governance, performance, and security. Each new client and each new region added new challenges in data sovereignty, cross-border compliance, and secure workload orchestration.  
 
-The outcome demonstrates a practical approach to **hybrid cloud adoption, regulatory alignment, workforce training, and business continuity planning**, ensuring long-term resilience and growth in a global environment.  
+To address this, I designed a hybrid cloud security architecture that strikes the right balance between efficiency and control. The solution is built on four key pillars:  
+
+- **Cloud Service & Deployment Strategy**: Leveraging PaaS to accelerate IoT development and adopting a hybrid cloud model to combine sovereignty, performance, and flexibility.  
+- **Regulatory Compliance Alignment**: Embedding GDPR, CCPA, ISO 27001, and EU–US data transfer frameworks to ensure operations remain lawful and auditable.  
+- **Security Training & Governance**: Creating a secure development culture by applying SSDLC practices and the Microsoft SDL framework so that security is integrated from the ground up.  
+- **Risk Management & Continuity Planning**: Using the NIST Cybersecurity Framework to strengthen monitoring, incident response, and disaster recovery across Azure’s global infrastructure.  
+
+The outcome is more than just a cloud migration strategy. It is a blueprint for long-term resilience that shows how difficult trade-offs between cost, compliance, and performance can be transformed into a practical architecture that supports rapid growth and builds trust with both clients and regulators.  
+
 
 ---
 
