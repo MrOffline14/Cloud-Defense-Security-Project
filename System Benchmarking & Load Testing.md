@@ -1,8 +1,26 @@
-# Cloud-Defense-Security-Project
+# System Performance Benchmarking and Load Testing  
+
+This part of the project focuses on the **practical validation of system performance, stability, and scalability** under different workloads and environments.  
+While the theoretical foundation outlined in **Hybrid-Cloud-Comp-Risk.md** established the architectural choices, compliance requirements, and risk management strategies, this section translates those concepts into **hands-on testing and benchmarking**.  
+
+The key objectives are to:  
+- 🔍 **Profile and analyze system resources** (CPU architecture, vulnerabilities, bogomips, and network services).  
+- 🌐 **Deploy and validate a web server** (Nginx) as the test target.  
+- ⚡ **Simulate load and stress conditions** using ApacheBench, including high-volume and DDoS-like scenarios.  
+- 📦 **Compare host vs. containerized environments** by benchmarking performance directly on the VM and inside Docker.  
+- 📊 **Evaluate system scalability under extreme concurrency**, including stress testing with up to 1 million requests.  
+
+By systematically moving from **baseline analysis → local load testing → containerized benchmarking → extreme stress tests**, this section demonstrates how theoretical assumptions about resilience and scalability hold up in real-world conditions.  
+
+Together, these experiments provide concrete insights into:  
+- System capacity and bottlenecks.  
+- Trade-offs between raw host performance and containerized efficiency.  
+- Practical resilience against denial-of-service style loads.  
+
+This ensures that the system is not only designed for resilience on paper, but also **tested, validated, and proven stable** under demanding scenarios.  
 
 ## Table of Contents
 
-- [**System Performance Benchmarking and Load Testing**](#system-perfomance-benchmarking-and-load-testing)
 - [System Information Analysis](#system-information-analysis)
   - [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
   - [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
@@ -24,11 +42,7 @@
   - [High-Concurrency Stress Test](#high-concurrency-stress-test)  
     - [Extreme Load Benchmarking (1M Requests @ Concurrency 1000)](#extreme-load-benchmarking-1m-requests--concurrency-1000)  
 
-
-
-
-## System Perfomance Benchmarking and Load Testing
-This part of the project demonstrates how to analyze system resources, test performance under load, compare a web server on the host versus in a container, and perform stress tests with high concurrency.
+---
 
 ### System Information Analysis
 #### CPU Architecture Profiling (Cores and Bogomips)
