@@ -2,15 +2,14 @@
 
 ## Table of Contents
 
-- [System Performance Benchmarking and Load Testing](#system-performance-benchmarking-and-load-testing)
-  
-  - [System Information Analysis](#system-information-analysis)
-    - [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
-    - [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
-    - [Bogomips Validation and Consistency Check](#bogomips-validation-and-consistency-check)  
-    - [Network Service Enumeration (Open Ports Analysis)](#network-service-enumeration-open-ports-analysis)
+- [**System Performance Benchmarking and Load Testing**](#system-perfomance-benchmarking-and-load-testing)
+- [System Information Analysis](#system-information-analysis)
+  - [CPU Architecture Profiling (Cores and Bogomips)](#cpu-architecture-profiling-cores-and-bogomips)  
+  - [Hardware Vulnerability Enumeration and Mitigation](#hardware-vulnerability-enumeration-and-mitigation)  
+  - [Bogomips Validation and Consistency Check](#bogomips-validation-and-consistency-check)  
+  - [Network Service Enumeration (Open Ports Analysis)](#network-service-enumeration-open-ports-analysis)
       
-  - [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)
+ - [Webserver Setup and Local Load Testing](#webserver-setup-and-local-load-testing)
     - [Nginx Deployment and Service Validation](#nginx-deployment-and-service-validation)  
     - [DDoS Load Stress Simulation with ApacheBench](#ddos-load-stress-simulation-with-apachebench)
       - [High-Volume Request Execution (100k Requests @ Concurrency 100)](#high-volume-request-execution-100k-requests--concurrency-100)  
